@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interior Studio | Shop</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f8f6;
+      
+    }
+
+    header {
+      background: #fff8f2;
+      padding: 60px 0;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: #5d4638;
+    }
+
+    .cart-indicator {
+      position: fixed;
+      top: 20px;
+      right: 30px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .product-card {
+      border: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .product-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: #5d4638;
+    }
+
+    .product-price {
+      font-size: 16px;
+      color: #777;
+    }
+
+    .btn-add {
+      background-color: #b28967;
+      color: white;
+      border: none;
+    }
+
+    .btn-add:hover {
+      background-color: #9d7256;
+    }
+  </style>
+<!-- Header Navigation -->
+<nav class="nav-menu">
+  <div class="logo">INTERIOR STUDIO</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="Studio Shop.html" class="active">Studio Shop</a>
+      <a href="Analytics.html">Analytics</a>
+            <a href="bag.html" class="bag-link"><i class="bi bi-bag"></i> Bag(<span id="cartCount">0</span>)</a>
+
+      <a href="login.html" class="login-link">Login</a>
+    </div>
+   
+     </div>
+</nav>
+
+<style>
+  .nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 60px;
+    border-bottom: 1px solid #eaeaea;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    flex-wrap: wrap;
+  }
+
+  .nav-menu .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #222;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .nav-links a {
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: #b28967;
+    border-bottom: 2px solid #b28967;
+    padding-bottom: 4px;
+  }
+
+  .cart-indicator {
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .cart-indicator a {
+    color: #0f0f0f;
+    text-decoration: none;
+  }
+</style>
+
+
+  <header>
+    <h1>Explore Our Studio Picks</h1>
+    <p class="text-muted">Curated interior design pieces for your modern home</p>
+ 
+  </header>
+
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <!-- Product 1 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/shop chair.png" class="product-image" alt="Neutral Armchair">
+          <div class="card-body text-center">
+            <div class="product-title">Neutral Armchair</div>
+            <div class="product-price">$78.00</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Neutral Armchair', 78)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/shop art.png" class="product-image" alt="Modern Wall Art">
+          <div class="card-body text-center">
+            <div class="product-title">Modern Wall Art</div>
+            <div class="product-price">$21.00</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Modern Wall Art', 21)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/shopping vase.png" class="product-image" alt="Rustic Decor Vase">
+          <div class="card-body text-center">
+            <div class="product-title">Rustic Decor Vase</div>
+            <div class="product-price">$10.80</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Rustic Decor Vase', 10.8)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/mirror.jpg" class="product-image" alt="Boho Mirror">
+          <div class="card-body text-center">
+            <div class="product-title">Boho Mirror</div>
+            <div class="product-price">$45.00</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Boho Mirror', 45)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/lamp.png" class="product-image" alt="Vintage Lamp">
+          <div class="card-body text-center">
+            <div class="product-title">Vintage Lamp</div>
+            <div class="product-price">$32.00</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Vintage Lamp', 32)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="col-md-4">
+        <div class="card product-card">
+          <img src="img/sofa blanket.png" class="product-image" alt="Soft Throw Blanket">
+          <div class="card-body text-center">
+            <div class="product-title">Soft Throw Blanket</div>
+            <div class="product-price">$28.00</div>
+            <button class="btn btn-add mt-3 w-100" onclick="addToBag('Soft Throw Blanket', 28)">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-column">
+      <h6>ABOUT US</h6>
+      <ul>
+        <li>The Team</li>
+        <li>Company</li>
+        <li>Reviews</li>
+        <li>Pricing</li>
+        <li>Design Careers</li>
+        <li>Press</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h6>EXPLORE</h6>
+      <ul>
+        <li>Style Quiz</li>
+        <li>Interior Design Blog</li>
+        <li>Sample Projects</li>
+        <li>Designer Portfolios</li>
+        <li>Virtual Interior Design</li>
+        <li>FAQ</li>
+        <li>Contact Us</li>
+        <li>Interior Design Gift Cards</li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h6>LOCATIONS</h6>
+      <ul>
+        <li>New York</li>
+        <li>Miami</li>
+        <li>Los Angeles</li>
+        <li>Austin</li>
+        <li>Charlotte</li>
+        <li>Chicago</li>
+        <li>Seattle</li>
+        <li>See All Locations</li>
+      </ul>
+    </div>
+    <div class="footer-column" style="max-width: 280px;">
+      <h6>GET EXCLUSIVE TIPS & OFFERS</h6>
+      <input type="email" placeholder="Enter email address" />
+      <h6>JOIN OUR COMMUNITY</h6>
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-pinterest"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="footer-bottom">
+  <div class="footer-bottom-inner">
+    <div class="left">INTERIOR STUDIO</div>
+    <div class="right">
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <span>Copyright © 2025</span>
+    </div>
+  </div>
+</div>
+<style>
+  footer {
+    background-color: #111;
+    color: white;
+    padding: 60px 40px 30px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .footer-column h6 {
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    line-height: 1.8;
+    font-size: 14px;
+  }
+
+  .footer-column ul li {
+    margin-bottom: 6px;
+    color: #ccc;
+  }
+
+  .footer-column input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #888;
+    background-color: transparent;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-icons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #999;
+    border-radius: 50%;
+    color: #ccc;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    color: white;
+    border-color: white;
+  }
+
+  .footer-bottom {
+    background-color: #111;
+    border-top: 1px solid #333;
+    padding: 20px 40px;
+    color: #aaa;
+    font-size: 13px;
+  }
+
+  .footer-bottom-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom-inner .left {
+    display: flex;
+    align-items: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+  }
+
+  .footer-bottom-inner .right a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 8px;
+  }
+
+  .footer-bottom-inner .right a:hover {
+    color: white;
+  }
+</style>
+
+  <script>
+    function addToBag(name, price) {
+      let bag = JSON.parse(localStorage.getItem('bag')) || [];
+      let index = bag.findIndex(item => item.name === name);
+
+      if (index !== -1) {
+        bag[index].quantity += 1;
+      } else {
+        bag.push({ name, price, quantity: 1 });
+      }
+
+      localStorage.setItem('bag', JSON.stringify(bag));
+      updateCartCount();
+      alert(`${name} added to bag!`);
+    }
+
+    function updateCartCount() {
+    const bag = JSON.parse(localStorage.getItem('bag')) || [];
+    const count = bag.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElem = document.getElementById('cartCount');
+    if (cartCountElem) cartCountElem.textContent = count;
+  }
+
+  // Call on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
