@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Interior Studio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+      margin: 0;
+    }
+
+    nav.nav-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 60px;
+      border-bottom: 1px solid #eaeaea;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    nav .nav-links a {
+      margin: 0 18px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    nav .nav-links a:hover,
+    nav .nav-links a.active {
+      color: #b28967;
+      border-bottom: 2px solid #b28967;
+      padding-bottom: 4px;
+    }
+
+    .header {
+      background: linear-gradient(to right, #b28967, #f1e3d3);
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 20px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #4a3b2f;
+    }
+
+    .profile-pic {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: block;
+      border: 4px solid #b28967;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #b28967;
+    }
+
+    .btn-github {
+      background-color: #333;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+    }
+
+    .btn-github:hover {
+      background-color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation Bar -->
+  <nav class="nav-menu">
+    <div class="logo">INTERIOR STUDIO</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About Us</a>
+      <a href="Studio Shop.html">Studio Shop</a>
+      <a href="Analytics.html">Analytics</a>
+      <a href="bag.html" class="bag-link">
+  <i class="bi bi-bag"></i> Bag (<span id="cartCount">0</span>)
+</a>
+      <a href="login.html" class="login-link">Login</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <div class="header">
+    <h1>About the Developer</h1>
+    <p>Get to know the creator behind the Interior Studio experience</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+  <img src="img/Profile.jpeg" alt="Vasudhaa Profile" class="profile-pic">
+
+  <h2 class="section-title">Hello, I'm Vasudhaa Chowdary Nekkanti</h2>
+  <p>
+    I'm a passionate and dedicated developer with a strong foundation in software engineering, data analysis, and user interface design. Currently pursuing a Masters degree in Artificial Intelligence and Business Analytics from the University of South Florida, I combine technical depth with creativity to deliver thoughtful digital experiences.
+  </p>
+  <p>
+    My academic and professional background includes experience with full-stack web development, quality assurance testing, and enterprise CRM platforms. This website Interior Studio, was built as a demonstration of my ability to design and implement an elegant, interactive platform with clean structure, responsiveness, and usability at its core.
+  </p>
+
+  <h2 class="section-title">Development Process</h2>
+  <p>
+    The project began with visual planning in Figma, where layouts and interface components were designed with accessibility and aesthetics in mind. The front-end was developed using semantic HTML and CSS, styled with Bootstrap to ensure responsiveness across screen sizes. Interactive functionality such as the dynamic shopping bag was built using vanilla JavaScript and localStorage to manage user selections.
+  </p>
+  <p>
+    I followed a modular approach to structure HTML and CSS, ensuring code readability, reusability, and easy maintenance. Elements like the cart, navigation, and product cards were implemented with smooth transitions and minimalistic design principles.
+  </p>
+
+  <h2 class="section-title">Technologies Used</h2>
+  <ul>
+    <li>HTML, CSS, JavaScript (Vanilla)</li>
+    <li>Bootstrap  for responsive layout and grid</li>
+    <li>Figma for UI design and wireframes</li>
+    <li>Git & GitHub for version control</li>
+    <li>localStorage API for persistent cart functionality</li>
+  </ul>
+
+  <h2 class="section-title">Professional Experience</h2>
+  <p>
+    At Capgemini, I worked as a Software Analyst, where I performed functional and integration testing for Salesforce and Vlocity platforms. I developed and executed comprehensive test cases, managed defect life cycles, and collaborated closely with developers to ensure quality releases. I also contributed to automation and scripting using UFT and Selenium.
+  </p>
+  <p>
+    In team-based academic projects, I have contributed to building a skincare recommendation platform using Python, MongoDB, and HTML/CSS managing both front-end development and data processing pipelines. These projects refined my skills in collaboration, agile methodology, and real-world product design.
+  </p>
+
+  <h2 class="section-title">Explore the Code</h2>
+  <p>
+    You can view the complete source code of this project on my GitHub profile:
+  </p>
+  <a class="btn-github" href="https://github.com/vasudhaa15/Assignment_LookAndFeel" target="_blank">
+    <i class="bi bi-github"></i> View GitHub
+  </a>
+
+  <h2 class="section-title mt-5">Thank You!</h2>
+  <p>
+    Thank you for visiting Interior Studio. I hope this project inspires creativity and reflects the value of design-driven thinking. If you would like to connect, collaborate, or share feedback, feel free to reach out!
+  </p>
+</div>
+<script>
+  function updateCartCount() {
+    const bag = JSON.parse(localStorage.getItem('bag')) || [];
+    const count = bag.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElem = document.getElementById('cartCount');
+    if (cartCountElem) cartCountElem.textContent = count;
+  }
+
+  // Call on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

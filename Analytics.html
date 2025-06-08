@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Analytics | Interior Studio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fdf9f4;
+      margin: 0;
+    }
+
+  .nav-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 60px;
+      border-bottom: 1px solid #eaeaea;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .nav-links a {
+      margin: 0 18px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #b28967;
+      border-bottom: 2px solid #b28967;
+      padding-bottom: 4px;
+    }
+
+    .floating-cart a {
+      font-size: 14px;
+      color: #333;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .floating-cart a:hover {
+      color: #b28967;
+    }
+
+    .floating-cart a.active {
+      color: #b28967;
+      border-bottom: 2px solid #b28967;
+      padding-bottom: 4px;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      background-color: #fff8f2;
+      color: #5d4638;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+    }
+
+    .chart-container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    .chart-small {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    }
+
+    
+    
+  </style>
+</head>
+<body onload="updateCartCount()">
+
+<!-- Navigation -->
+<nav class="nav-menu">
+  <div class="logo">INTERIOR STUDIO</div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="Studio Shop.html" >Studio Shop</a>
+      <a href="Analytics.html"class="active">Analytics</a>
+            <a href="bag.html" class="bag-link">
+  <i class="bi bi-bag"></i> Bag (<span id="cartCount">0</span>)
+</a>
+
+      <a href="login.html" class="login-link">Login</a>
+    </div>
+   
+     </div>
+</nav>
+
+<!-- Page Header -->
+<header>
+  <h1>Design Trends & Analytics</h1>
+  <p>Visual insights based on user preferences and engagement</p>
+</header>
+
+<!-- Charts -->
+<div class="chart-container">
+  <canvas id="styleChart"></canvas>
+</div>
+
+<div class="chart-container">
+  <canvas id="trafficChart"></canvas>
+</div>
+
+<div class="chart-small">
+  <canvas id="categoryChart"></canvas>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+      <!-- Footer content (same as above) -->
+      <div class="footer-column">
+        <h6>ABOUT US</h6>
+        <ul>
+          <li>The Team</li>
+          <li>Company</li>
+          <li>Reviews</li>
+          <li>Pricing</li>
+          <li>Design Careers</li>
+          <li>Press</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>EXPLORE</h6>
+        <ul>
+          <li>Style Quiz</li>
+          <li>Interior Design Blog</li>
+          <li>Sample Projects</li>
+          <li>Designer Portfolios</li>
+          <li>Virtual Interior Design</li>
+          <li>FAQ</li>
+          <li>Contact Us</li>
+          <li>Interior Design Gift Cards</li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h6>LOCATIONS</h6>
+        <ul>
+          <li>New York</li>
+          <li>Miami</li>
+          <li>Los Angeles</li>
+          <li>Austin</li>
+          <li>Charlotte</li>
+          <li>Chicago</li>
+          <li>Seattle</li>
+          <li>See All Locations</li>
+        </ul>
+      </div>
+      <div class="footer-column" style="max-width: 280px;">
+        <h6>GET EXCLUSIVE TIPS & OFFERS</h6>
+        <input type="email" placeholder="Enter email address" />
+        <h6>JOIN OUR COMMUNITY</h6>
+        <div class="social-icons">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-facebook"></i></a>
+          <a href="#"><i class="bi bi-pinterest"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="left">INTERIOR STUDIO</div>
+      <div class="right">
+        <a href="#">Terms & Conditions</a> |
+        <a href="#">Privacy Policy</a> |
+        <span>Copyright &#169; 2025</span>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- Chart.js and Cart Logic -->
+<script>
+  const ctx1 = document.getElementById('styleChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Modern', 'Bohemian', 'Scandinavian', 'Minimalist', 'Vintage', 'Rustic'],
+      datasets: [{
+        label: 'User Interest by Style',
+        data: [45, 30, 25, 35, 20, 15],
+        backgroundColor: '#b28967',
+        borderRadius: 6
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Popular Interior Design Styles',
+          font: { size: 18 }
+        },
+        legend: { display: false }
+      },
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+
+  const ctx2 = document.getElementById('trafficChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Monthly Site Visits',
+        data: [500, 700, 850, 950, 1100, 1300],
+        borderColor: '#b28967',
+        backgroundColor: 'rgba(178, 137, 103, 0.2)',
+        tension: 0.3,
+        fill: true,
+        pointRadius: 5,
+        pointHoverRadius: 7
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Monthly Website Traffic',
+          font: { size: 18 }
+        }
+      }
+    }
+  });
+
+  const ctx3 = document.getElementById('categoryChart').getContext('2d');
+  new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: ['Furniture', 'Lighting', 'Wall Art', 'Decor', 'Textiles'],
+      datasets: [{
+        label: 'Product Distribution',
+        data: [30, 25, 15, 20, 10],
+        backgroundColor: [
+          '#b28967', '#d9a679', '#c79b73', '#e6ccb3', '#a9825a'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Product Category Distribution',
+          font: { size: 18 }
+        }
+      }
+    }
+  });
+
+
+</script>
+<script>
+  function updateCartCount() {
+    const bag = JSON.parse(localStorage.getItem('bag')) || [];
+    const count = bag.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElem = document.getElementById('cartCount');
+    if (cartCountElem) cartCountElem.textContent = count;
+  }
+
+  // Call on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>

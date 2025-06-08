@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Bag | Interior Studio</title>
+
+  <!-- Bootstrap + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/main.css">
+
+  <style>
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fef9f5;
+      margin: 0;
+      padding: 0;
+    }
+
+  .nav-menu {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 60px;
+      border-bottom: 1px solid #eaeaea;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .nav-links a {
+      margin: 0 18px;
+      color: #333;
+      font-size: 14px;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #b28967;
+      border-bottom: 2px solid #b28967;
+      padding-bottom: 4px;
+    }
+
+
+    header {
+      background-color: #fff8f2;
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 1px solid #e4dcd4;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #5d4638;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #7c6756;
+    }
+
+    .bag-section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f9f1ea;
+      color: #5d4638;
+    }
+
+    .btn-remove {
+      background-color: #c94b4b;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    .btn-remove:hover {
+      background-color: #a93e3e;
+    }
+
+    #grandTotal {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      color: #5d4638;
+      text-align: right;
+    }
+
+    .bag-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 30px;
+    }
+
+    
+  </style>
+</head>
+<body onload="loadBag()">
+
+  <!-- Navigation Bar -->
+  <nav class="nav-menu">
+    <div class="logo">INTERIOR STUDIO</div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="Studio Shop.html">Studio Shop</a>
+      <a href="Analytics.html">Analytics</a>
+<a href="bag.html" class="active">
+  <i class="bi bi-bag"></i> Bag (<span id="cartCount">0</span>)
+</a>    <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header>
+    <h1>Your Shopping Bag</h1>
+    <p>Review the pieces you love before checkout</p>
+  </header>
+
+  <!-- Bag Items -->
+  <div class="container bag-section">
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="bagBody">
+        <!-- JS will inject rows here -->
+      </tbody>
+    </table>
+
+    <div id="grandTotal">Your bag is empty.</div>
+
+    <div class="d-flex justify-content-end align-items-center gap-3 mt-4 mb-3">
+      <a href="Studio Shop.html" style="text-decoration: none; color: #221204; font-weight: 500; margin-right: 15px;">Continue Shopping</a>
+      <button onclick="window.location.href='index.html'" style="
+  background-color: #b28967;
+  color: white;
+  border: none;
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+">Checkout</button>
+
+    </div>
+  </div>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <!-- Column 1 -->
+    <div class="footer-column">
+      <h6>ABOUT US</h6>
+      <ul>
+        <li>The Team</li>
+        <li>Company</li>
+        <li>Reviews</li>
+        <li>Pricing</li>
+        <li>Design Careers</li>
+        <li>Press</li>
+      </ul>
+    </div>
+
+    <!-- Column 2 -->
+    <div class="footer-column">
+      <h6>EXPLORE</h6>
+      <ul>
+        <li>Style Quiz</li>
+        <li>Interior Design Blog</li>
+        <li>Sample Projects</li>
+        <li>Designer Portfolios</li>
+        <li>Virtual Interior Design</li>
+        <li>FAQ</li>
+        <li>Contact Us</li>
+        <li>Interior Design Gift Cards</li>
+      </ul>
+    </div>
+
+    <!-- Column 3 -->
+    <div class="footer-column">
+      <h6>LOCATIONS</h6>
+      <ul>
+        <li>New York</li>
+        <li>Miami</li>
+        <li>Los Angeles</li>
+        <li>Austin</li>
+        <li>Charlotte</li>
+        <li>Chicago</li>
+        <li>Seattle</li>
+        <li>See All Locations</li>
+      </ul>
+    </div>
+
+    <!-- Column 4 -->
+    <div class="footer-column" style="max-width: 280px;">
+      <h6>GET EXCLUSIVE TIPS & OFFERS</h6>
+      <input type="email" placeholder="Enter email address" />
+      <h6>JOIN OUR COMMUNITY</h6>
+      <div class="social-icons">
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-pinterest"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+        <a href="#"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Footer Bottom -->
+<div class="footer-bottom">
+  <div class="footer-bottom-inner">
+    <div class="left">INTERIOR STUDIO</div>
+    <div class="right">
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <span>Copyright &#169; 2025</span>
+    </div>
+  </div>
+</div>
+
+
+
+  <script>
+    function loadBag() {
+      const bag = JSON.parse(localStorage.getItem('bag')) || [];
+      const body = document.getElementById('bagBody');
+      const totalDiv = document.getElementById('grandTotal');
+      body.innerHTML = '';
+      let grand = 0;
+
+      if (bag.length === 0) {
+        totalDiv.textContent = 'Your bag is empty.';
+        return;
+      }
+
+      bag.forEach((item, index) => {
+        const total = item.price * item.quantity;
+        grand += total;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td><input type="number" value="${item.quantity}" min="1" onchange="updateQty(${index}, this.value)" class="form-control form-control-sm" style="width: 70px;"></td>
+          <td>$${total.toFixed(2)}</td>
+          <td><button class="btn-remove" onclick="removeItem(${index})">Remove</button></td>
+        `;
+        body.appendChild(row);
+      });
+
+      totalDiv.textContent = `Grand Total: $${grand.toFixed(2)}`;
+    }
+
+    function updateQty(index, value) {
+      let bag = JSON.parse(localStorage.getItem('bag')) || [];
+      bag[index].quantity = parseInt(value);
+      localStorage.setItem('bag', JSON.stringify(bag));
+      loadBag();
+    }
+
+    function removeItem(index) {
+      let bag = JSON.parse(localStorage.getItem('bag')) || [];
+      bag.splice(index, 1);
+      localStorage.setItem('bag', JSON.stringify(bag));
+      loadBag();
+    }
+  </script>
+  <script>
+  function updateCartCount() {
+    const bag = JSON.parse(localStorage.getItem('bag')) || [];
+    const count = bag.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElem = document.getElementById('cartCount');
+    if (cartCountElem) cartCountElem.textContent = count;
+  }
+
+  // Call on page load
+  window.addEventListener('DOMContentLoaded', updateCartCount);
+</script>
+<script src="js/main.js"></script>
+</body>
+</html>
